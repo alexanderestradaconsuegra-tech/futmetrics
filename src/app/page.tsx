@@ -57,19 +57,19 @@ export default function LoginPage() {
         <div className="relative z-10">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur rounded-full px-4 py-1.5 mb-6">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse-slow" />
-            <span className="text-white/80 text-xs font-medium">Sistema Premium para Entrenadores</span>
+            <span className="text-white/80 text-xs font-medium">Para entrenadores y directores técnicos</span>
           </div>
           <h1 className="text-4xl xl:text-5xl font-black text-white leading-tight mb-5">
-            Lleva el rendimiento<br />
-            <span className="text-blue-200">al siguiente nivel.</span>
+            Conoce el estado real<br />
+            <span className="text-blue-200">de cada jugador de tu plantel.</span>
           </h1>
           <p className="text-blue-100/70 text-base max-w-sm leading-relaxed">
-            Monitorea el progreso de tus jugadores, registra actividades y visualiza la evolución con métricas de alto rendimiento.
+            Registra actividades físicas, evalúa a tus jugadores en velocidad, técnica, fuerza y más, y sigue su progreso semana a semana — todo en un panel diseñado para tomar decisiones con datos.
           </p>
 
           {/* Feature pills */}
           <div className="flex flex-wrap gap-2 mt-8">
-            {["Métricas en tiempo real", "Gráficos avanzados", "Reportes detallados", "Supabase Ready"].map(f => (
+            {["Evaluaciones técnicas", "Progreso individual", "Reportes por categoría", "Control de plantel completo"].map(f => (
               <span key={f} className="bg-white/10 backdrop-blur text-white/80 text-xs font-medium px-3 py-1.5 rounded-full border border-white/10">
                 {f}
               </span>
@@ -80,9 +80,9 @@ export default function LoginPage() {
         {/* Stats row */}
         <div className="grid grid-cols-3 gap-4 relative z-10">
           {[
-            { value: "6+", label: "Jugadores" },
-            { value: "14+", label: "Actividades" },
-            { value: "6", label: "Evaluaciones" },
+            { value: "Sub-10", label: "hasta Senior" },
+            { value: "11", label: "posiciones de campo" },
+            { value: "6", label: "áreas de evaluación" },
           ].map(s => (
             <div key={s.label} className="bg-white/8 backdrop-blur rounded-2xl p-4 border border-white/10 text-center">
               <p className="text-2xl font-black text-white">{s.value}</p>
@@ -106,7 +106,7 @@ export default function LoginPage() {
           <div className="bg-white rounded-3xl p-8 shadow-xl shadow-slate-200/60 border border-slate-100">
             <div className="mb-8">
               <h2 className="text-2xl font-bold text-slate-900 tracking-tight">Bienvenido de vuelta</h2>
-              <p className="text-slate-500 text-sm mt-1">Accede a tu panel de entrenador</p>
+              <p className="text-slate-500 text-sm mt-1">Ingresa y revisa el estado de tu equipo</p>
             </div>
 
             {/* Hint */}
@@ -170,7 +170,7 @@ export default function LoginPage() {
           </div>
 
           <p className="text-center text-xs text-slate-400 mt-6">
-            © 2024 FutbolMetrics · Sistema para academias de fútbol
+            © 2026 FutbolMetrics · Gestión de rendimiento para academias de fútbol
           </p>
         </div>
       </div>
