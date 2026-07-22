@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { LayoutDashboard, Users, Heart, Dumbbell, BarChart3 } from "lucide-react"
+import { LayoutDashboard, Users, Heart, Dumbbell, PenTool } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const NAV = [
@@ -9,7 +9,7 @@ const NAV = [
   { href: "/players",   icon: Users,          label: "Jugadores" },
   { href: "/health",    icon: Heart,           label: "Salud",    live: true },
   { href: "/activities",icon: Dumbbell,        label: "Actividad" },
-  { href: "/charts",    icon: BarChart3,       label: "Análisis"  },
+  { href: "/tactics",   icon: PenTool,         label: "Tácticas"  },
 ]
 
 export default function BottomNav() {

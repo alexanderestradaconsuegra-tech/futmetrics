@@ -4,14 +4,17 @@ import { usePathname } from "next/navigation"
 import { useApp } from "@/context/AppContext"
 import { cn } from "@/lib/utils"
 import {
-  LayoutDashboard, Users, Dumbbell, BarChart3, FileText, LogOut, Trophy, ChevronRight, Heart
+  LayoutDashboard, Users, Dumbbell, BarChart3, FileText, LogOut, Trophy, ChevronRight, Heart, CalendarDays, PenTool
 } from "lucide-react"
+import MetrikasLogo from "@/components/ui/MetrikasLogo"
 
 const NAV = [
   { href: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
   { href: "/players", icon: Users, label: "Jugadores" },
   { href: "/activities", icon: Dumbbell, label: "Actividades" },
+  { href: "/calendar", icon: CalendarDays, label: "Calendario" },
   { href: "/health", icon: Heart, label: "Salud en Vivo", badge: "LIVE" },
+  { href: "/tactics", icon: PenTool, label: "Tácticas" },
   { href: "/charts", icon: BarChart3, label: "Gráficos" },
   { href: "/reports", icon: FileText, label: "Reportes" },
 ]
@@ -25,18 +28,18 @@ export default function Sidebar() {
       {/* Logo */}
       <div className="px-6 py-5 border-b border-slate-100">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-brand-blue flex items-center justify-center shadow-md shadow-blue-200">
-            <Trophy className="w-5 h-5 text-white" />
+          <div className="w-9 h-9 rounded-xl bg-[#0B5CFF] flex items-center justify-center shadow-md shadow-blue-200 overflow-hidden shrink-0">
+            <MetrikasLogo variant="icon" height={22} theme="dark" />
           </div>
-          <div>
-            <span className="text-[15px] font-bold text-slate-900 tracking-tight">FutbolMetrics</span>
+          <div className="min-w-0">
+            <MetrikasLogo variant="full" height={15} theme="light" />
             <p className="text-[10px] text-slate-400 font-medium uppercase tracking-widest">Pro</p>
           </div>
         </div>
       </div>
 
       {/* Nav */}
-      <nav className="flex-1 px-3 py-4 space-y-0.5">
+      <nav className="flex-1 px-3 py-4 space-y-0.5 overflow-y-auto">
         <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest px-3 mb-3">Menú</p>
         {NAV.map(({ href, icon: Icon, label, badge }) => {
           const active = pathname.startsWith(href)

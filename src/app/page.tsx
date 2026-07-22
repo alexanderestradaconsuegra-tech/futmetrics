@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { useApp } from "@/context/AppContext"
 import { Trophy, Eye, EyeOff, Lock, Mail, AlertCircle } from "lucide-react"
+import MetrikasLogo from "@/components/ui/MetrikasLogo"
 
 export default function LoginPage() {
   const { login, isAuthenticated } = useApp()
@@ -44,13 +45,8 @@ export default function LoginPage() {
 
         {/* Logo */}
         <div className="flex items-center gap-3 relative z-10">
-          <div className="w-11 h-11 rounded-2xl bg-white/15 backdrop-blur flex items-center justify-center">
-            <Trophy className="w-6 h-6 text-white" />
-          </div>
-          <div>
-            <span className="text-xl font-bold text-white tracking-tight">FutbolMetrics</span>
-            <p className="text-blue-200/60 text-xs font-medium">Academia Deportiva</p>
-          </div>
+          <MetrikasLogo variant="icon" height={38} theme="dark" />
+          <MetrikasLogo variant="full" height={22} theme="dark" />
         </div>
 
         {/* Hero text */}
@@ -97,10 +93,10 @@ export default function LoginPage() {
         <div className="w-full max-w-md animate-fade-in">
           {/* Mobile logo */}
           <div className="flex lg:hidden items-center gap-3 mb-10 justify-center">
-            <div className="w-10 h-10 rounded-xl bg-[#0B5CFF] flex items-center justify-center shadow-md shadow-blue-200">
-              <Trophy className="w-5 h-5 text-white" />
+            <div className="w-10 h-10 rounded-xl bg-[#0B5CFF] flex items-center justify-center shadow-md shadow-blue-200 overflow-hidden">
+              <MetrikasLogo variant="icon" height={24} theme="dark" />
             </div>
-            <span className="text-xl font-bold text-slate-900">FutbolMetrics</span>
+            <MetrikasLogo variant="full" height={18} theme="light" />
           </div>
 
           <div className="bg-white rounded-3xl p-8 shadow-xl shadow-slate-200/60 border border-slate-100">
