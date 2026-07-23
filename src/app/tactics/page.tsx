@@ -160,7 +160,13 @@ export default function TacticsPage() {
   }
 
   function playAnim() {
-    stopAnim(true)
+    // Always cancel and reset before starting — prevents stale state on repeat plays
+    cancelAnimationFrame(rafRef.current)
+    setAnimM(null)
+    setAnimBall(null)
+    setPassStep(-1)
+    setPlaying(false)
+
     const passLines = lines.filter(l => l.type === "pass")
     const runLines  = lines.filter(l => l.type === "run")
 
@@ -467,11 +473,18 @@ export default function TacticsPage() {
                     ⏹ Detener
                   </button>
                 ) : (
-                  <button onClick={playAnim}
-                    disabled={lines.length===0 && markers.filter(m=>m.team!=="ball").length===0}
-                    className="flex items-center gap-2 px-7 py-2.5 rounded-xl bg-emerald-600 text-white text-sm font-bold shadow-lg hover:bg-emerald-700 disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
-                    ▶ Ver jugada completa
-                  </button>
+                  <>
+                    <button onClick={playAnim}
+                      disabled={lines.length===0 && markers.filter(m=>m.team!=="ball").length===0}
+                      className="flex items-center gap-2 px-7 py-2.5 rounded-xl bg-emerald-600 text-white text-sm font-bold shadow-lg hover:bg-emerald-700 disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
+                      ▶ Ver jugada completa
+                    </button>
+                    <button onClick={()=>stopAnim(true)}
+                      title="Volver al inicio"
+                      className="flex items-center gap-2 px-4 py-2.5 rounded-xl border-2 border-slate-200 bg-white text-slate-600 text-sm font-bold hover:bg-slate-50 hover:border-slate-300 transition-colors">
+                      ↺ Reiniciar
+                    </button>
+                  </>
                 )}
               </div>
 
